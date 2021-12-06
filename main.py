@@ -12,9 +12,9 @@ Bot = Client(
 )
 
 
-START_TEXT = """__**Hola {} 👋
+START_TEXT = """**Hola {} 👋**
 
-I am a simple calculator telegram bot, send /calc to use me!**__"""
+I am a simple calculator telegram bot, send /calc to use me!"""
 
 START_BUTTONS = InlineKeyboardMarkup(
     [
@@ -109,25 +109,25 @@ async def cb_data(bot, update):
                     inputt = int(message_text)
                     text = math.sqrt(inputt)
                 except:
-                    text = "Required. A number to find the square root of. If the value is not a number, it not works."
+                    text = "Entered value is not a number."
             elif data == "sin":
                 try:
                     inputt = int(message_text)
                     text = math.sin(inputt)
                 except:
-                    text = "Required. A number to find the sine of. If the value is not a number, it not works."
+                    text = "Entered value is not a number."
             elif data == "cos":
                 try:
                     inputt = int(message_text)
                     text = math.cos(inputt)
                 except:
-                    text = "Required. A number to find the cosine of. If the value is not a number, it not works."
+                    text = "Entered value is not a number."
             elif data == "tan":
                 try:
                     inputt = int(message_text)
                     text = math.tan(inputt)
                 except:
-                    text = "Required. A number to find the tangent of. If the value is not a number, it not works."
+                    text = "Entered value is not a number."
                 
             elif data == "DEL":
                 text = message_text[:-1]
