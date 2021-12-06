@@ -110,42 +110,34 @@ async def cb_data(bot, update):
                         return
             elif data == "sqrt":
                 try:
-                    if "." in message_text:
-                        omk = Decimal(message_text)
-                        text = math.sqrt(omk)
-                    else:
-                        text = math.sqrt(int(message_text))
+                    text = math.sqrt(Decimal(message_text))
                 except:
                     await update.answer("Entered value is not a number.")
                     return
             elif data == "sin":
                 try:
-                    cal = math.sin(math.radians(int(message_text)))
+                    cal = math.sin(math.radians(Decimal(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
                     await update.answer("Entered value is not a number.")
                     return
             elif data == "cos":
                 try:
-                    cal = math.cos(math.radians(int(message_text)))
+                    cal = math.cos(math.radians(Decimal(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
                     await update.answer("Entered value is not a number.")
                     return
             elif data == "tan":
                 try:
-                    cal = math.tan(math.radians(int(message_text)))
+                    cal = math.tan(math.radians(Decimal(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
                     await update.answer("Entered value is not a number.")
                     return
             elif data == "perc":
                 try:
-                    if "." in message_text:
-                        omk = Decimal(message_text)
-                        text = omk / 100
-                    else:
-                        text = int(message_text) / 100
+                    text = Decimal(message_text) / 100
                 except:
                     await update.answer("Entered value is not a number.")
                     return                                 
@@ -162,43 +154,6 @@ async def cb_data(bot, update):
             )
         except Exception as e:
             print(str(e))
-
-
-@Bot.on_inline_query()
-async def inline(bot, update):
-    if len(update.data) == 0:
-        try:
-            answers = [
-                InlineQueryResultArticle(
-                    title="Calculator",
-                    description=f"New calculator",
-                    input_message_content=InputTextMessageContent(
-                        text=CALCULATE_TEXT,
-                        disable_web_page_preview=True
-                    ),
-                    reply_markup=CALCULATE_BUTTONS
-                )
-            ]
-        except Exception as e:
-            print(str(e))
-    else:
-        try:
-            message_text = update.message.text.split("\n")[0].strip().split("=")[0].strip()
-            data = message_text.replace("×", "*").replace("÷", "/")
-            text = float(eval(data))
-            answers = [
-                InlineQueryResultArticle(
-                    title="Answer",
-                    description=f"Results of your input",
-                    input_message_content=InputTextMessageContent(
-                        text=f"{data} = {text}",
-                        disable_web_page_preview=True
-                    )
-                )
-            ]
-        except:
-            pass
-    await update.answer(answers)
 
 
 Bot.run()
