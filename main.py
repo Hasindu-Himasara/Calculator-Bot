@@ -1,4 +1,5 @@
 import os
+import math
 from pyrogram import Client, filters
 from pyrogram.types import *
 
@@ -12,22 +13,24 @@ Bot = Client(
 
 
 START_TEXT = """Hello {},
-I am a simple calculator telegram bot. Send me /calculator.
+I am a simple calculator telegram bot. Send /cal to use me!"""
 
-Made by @FayasNoushad"""
 START_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton('⚙ Join Updates Channel ⚙', url='https://telegram.me/FayasNoushad')
+            InlineKeyboardButton("GitHub", url="https://github.com/ImJanindu")
         ]
     ]
 )
-CALCULATE_TEXT = "Made by @FayasNoushad"
+
+CALCULATE_TEXT = "Calculator :/"
+
 CALCULATE_BUTTONS = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton("DEL", callback_data="DEL"),
             InlineKeyboardButton("AC", callback_data="AC"),
+            InlineKeyboardButton("√", callback_data="sqrt")
             InlineKeyboardButton("(", callback_data="("),
             InlineKeyboardButton(")", callback_data=")")
         ],
@@ -89,6 +92,12 @@ async def cb_data(bot, update):
             message_text = '' if CALCULATE_TEXT in message_text else message_text
             if data == "=":
                 text = float(eval(message_text))
+            elif data == "sqrt":
+                try:
+                    inputt = int(message_text)
+                    text = math.sqrt(inputt)
+                except:
+                    text = "Wrong input!"
             elif data == "DEL":
                 text = message_text[:-1]
             elif data == "AC":
