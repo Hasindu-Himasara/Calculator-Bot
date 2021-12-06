@@ -39,7 +39,8 @@ CALCULATE_BUTTONS = InlineKeyboardMarkup(
         [
             InlineKeyboardButton("SIN", callback_data="sin"),
             InlineKeyboardButton("COS", callback_data="cos"),
-            InlineKeyboardButton("TAN", callback_data="tan")
+            InlineKeyboardButton("TAN", callback_data="tan"),
+            InlineKeyboardButton("%", callback_data="%")
         ],
         [
             InlineKeyboardButton("7", callback_data="7"),
