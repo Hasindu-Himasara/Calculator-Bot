@@ -25,7 +25,7 @@ START_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
-CALCULATE_TEXT = "𝓢𝓶𝓪𝓻𝓽 𝓽𝓮𝓵𝓮𝓰𝓻𝓪𝓶 𝓬𝓪𝓵𝓬𝓾𝓵𝓪𝓽𝓸𝓻"
+CALCULATE_TEXT = "**Smart telegram calculator**"
 
 CALCULATE_BUTTONS = InlineKeyboardMarkup(
     [
