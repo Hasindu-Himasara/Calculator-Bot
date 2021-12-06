@@ -114,7 +114,7 @@ async def cb_data(bot, update):
                     else:
                         text = math.sqrt(int(message_text))
                 except:
-                    await bot.answer("Entered value is not a number.")
+                    await update.answer("Entered value is not a number.")
                     return
             elif data == "sin":
                 try:
