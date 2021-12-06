@@ -103,7 +103,7 @@ async def cb_data(bot, update):
                     inputt = int(message_text)
                     text = math.sqrt(inputt)
                 except:
-                    text = ""
+                    text = "Required. A number to find the square root of. If the value is not a number, it not works."
             elif data == "sin":
                 try:
                     inputt = int(message_text)
