@@ -97,7 +97,13 @@ async def cb_data(bot, update):
             message_text = update.message.text.split("\n")[0].strip().split("=")[0].strip()
             message_text = '' if CALCULATE_TEXT in message_text else message_text
             if data == "=":
-                text = float(eval(message_text))
+                if message_text == "":
+                    text = "Empty input."
+                else:
+                    try:
+                        text = float(eval(message_text))
+                    except:
+                        text = "Syntax Error."
             elif data == "sqrt":
                 try:
                     inputt = int(message_text)
