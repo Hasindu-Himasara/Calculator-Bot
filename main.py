@@ -36,6 +36,11 @@ CALCULATE_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton(")", callback_data=")")
         ],
         [
+            InlineKeyboardButton("SIN", callback_data="sin"),
+            InlineKeyboardButton("COS", callback_data="cos"),
+            InlineKeyboardButton("TAN", callback_data="tan")
+        ],
+        [
             InlineKeyboardButton("7", callback_data="7"),
             InlineKeyboardButton("8", callback_data="8"),
             InlineKeyboardButton("9", callback_data="9"),
@@ -99,6 +104,25 @@ async def cb_data(bot, update):
                     text = math.sqrt(inputt)
                 except:
                     text = ""
+            elif data == "sin":
+                try:
+                    inputt = int(message_text)
+                    text = math.sin(inputt)
+                except:
+                    text = "Required. A number to find the sine of. If the value is not a number, it not works."
+            elif data == "cos":
+                try:
+                    inputt = int(message_text)
+                    text = math.cos(inputt)
+                except:
+                    text = "Required. A number to find the cosine of. If the value is not a number, it not works."
+            elif data == "tan":
+                try:
+                    inputt = int(message_text)
+                    text = math.tan(inputt)
+                except:
+                    text = "Required. A number to find the tangent of. If the value is not a number, it not works."
+                
             elif data == "DEL":
                 text = message_text[:-1]
             elif data == "AC":
