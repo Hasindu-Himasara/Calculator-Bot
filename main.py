@@ -100,12 +100,14 @@ async def cb_data(bot, update):
             message_text = '' if CALCULATE_TEXT in message_text else message_text
             if data == "=":
                 if message_text == "":
-                    text = "Empty input."
+                    await update.answer("Empty input.")
+                    return
                 else:
                     try:
                         text = float(eval(message_text))
                     except:
-                        text = "Syntax Error."
+                        await update.answer("Syntax Error.")
+                        return
             elif data == "sqrt":
                 try:
                     if "." in message_text:
@@ -121,19 +123,22 @@ async def cb_data(bot, update):
                     cal = math.sin(math.radians(int(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
-                    text = "Entered value is not a number."
+                    await update.answer("Entered value is not a number.")
+                    return
             elif data == "cos":
                 try:
                     cal = math.cos(math.radians(int(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
-                    text = "Entered value is not a number."
+                    await update.answer("Entered value is not a number.")
+                    return
             elif data == "tan":
                 try:
                     cal = math.tan(math.radians(int(message_text)))
                     text = '{:.4f}'.format(cal)
                 except:
-                    text = "Entered value is not a number."
+                    await update.answer("Entered value is not a number.")
+                    return
                 
             elif data == "DEL":
                 text = message_text[:-1]
