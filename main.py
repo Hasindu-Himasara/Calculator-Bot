@@ -116,17 +116,17 @@ async def cb_data(bot, update):
                     text = "Entered value is not a number."
             elif data == "sin":
                 try:
-                    text = math.sin(int(message_text))
+                    text = math.sin(math.radians(int(message_text)))
                 except:
                     text = "Entered value is not a number."
             elif data == "cos":
                 try:
-                    text = math.cos(int(message_text))
+                    text = math.cos(math.radians(int(message_text)))
                 except:
                     text = "Entered value is not a number."
             elif data == "tan":
                 try:
-                    text = math.tan(int(message_text))
+                    text = math.tan(math.radians(int(message_text)))
                 except:
                     text = "Entered value is not a number."
                 
