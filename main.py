@@ -24,7 +24,7 @@ START_BUTTONS = InlineKeyboardMarkup(
     ]
 )
 
-CALCULATE_TEXT = "Calculator :/"
+CALCULATE_TEXT = "**Calculator :/**"
 
 CALCULATE_BUTTONS = InlineKeyboardMarkup(
     [
