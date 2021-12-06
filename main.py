@@ -141,7 +141,11 @@ async def cb_data(bot, update):
                     return
             elif data == "perc":
                 try:
-                    text = int(message_text) / 100
+                    if "." in message_text:
+                        omk = Decimal(message_text)
+                        text = omk / 100
+                    else:
+                        text = int(message_text) / 100
                 except:
                     await update.answer("Entered value is not a number.")
                     return                                 
