@@ -1,5 +1,6 @@
 import os
 import math
+from decimal import Decimal
 from pyrogram import Client, filters
 from pyrogram.types import *
 
@@ -106,22 +107,26 @@ async def cb_data(bot, update):
                         text = "Syntax Error."
             elif data == "sqrt":
                 try:
-                    text = math.sqrt(message_text)
+                    if "." in message_text:
+                        omk = Decimal(message_text)
+                        text = math.sqrt(omk)
+                    else:
+                        text = math.sqrt(int(message_text))
                 except:
                     text = "Entered value is not a number."
             elif data == "sin":
                 try:
-                    text = math.sin(message_text)
+                    text = math.sin(int(message_text))
                 except:
                     text = "Entered value is not a number."
             elif data == "cos":
                 try:
-                    text = math.cos(message_text)
+                    text = math.cos(int(message_text))
                 except:
                     text = "Entered value is not a number."
             elif data == "tan":
                 try:
-                    text = math.tan(message_text)
+                    text = math.tan(int(message_text))
                 except:
                     text = "Entered value is not a number."
                 
