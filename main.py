@@ -30,7 +30,7 @@ CALCULATE_TEXT = "Calculator :/"
 CALCULATE_BUTTONS = InlineKeyboardMarkup(
     [
         [
-            InlineKeyboardButton("DEL", callback_data="DEL"),
+            InlineKeyboardButton("⌫", callback_data="DEL"),
             InlineKeyboardButton("AC", callback_data="AC"),
             InlineKeyboardButton("√", callback_data="sqrt"),
             InlineKeyboardButton("(", callback_data="("),
