@@ -12,8 +12,9 @@ Bot = Client(
 )
 
 
-START_TEXT = """Hello {},
-I am a simple calculator telegram bot. Send /cal to use me!"""
+START_TEXT = """__**Hola {} 👋
+
+I am a simple calculator telegram bot, send /calc to use me!**__"""
 
 START_BUTTONS = InlineKeyboardMarkup(
     [
@@ -97,7 +98,7 @@ async def cb_data(bot, update):
                     inputt = int(message_text)
                     text = math.sqrt(inputt)
                 except:
-                    text = "Wrong input!"
+                    text = ""
             elif data == "DEL":
                 text = message_text[:-1]
             elif data == "AC":
@@ -109,8 +110,8 @@ async def cb_data(bot, update):
                 disable_web_page_preview=True,
                 reply_markup=CALCULATE_BUTTONS
             )
-        except Exception as error:
-            print(error)
+        except Exception as e:
+            print(str(e))
 
 
 @Bot.on_inline_query()
@@ -128,8 +129,8 @@ async def inline(bot, update):
                     reply_markup=CALCULATE_BUTTONS
                 )
             ]
-        except Exception as error:
-            print(error)
+        except Exception as e:
+            print(str(e))
     else:
         try:
             message_text = update.message.text.split("\n")[0].strip().split("=")[0].strip()
