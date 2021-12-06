@@ -106,26 +106,22 @@ async def cb_data(bot, update):
                         text = "Syntax Error."
             elif data == "sqrt":
                 try:
-                    inputt = int(message_text)
-                    text = math.sqrt(inputt)
+                    text = math.sqrt(message_text)
                 except:
                     text = "Entered value is not a number."
             elif data == "sin":
                 try:
-                    inputt = int(message_text)
-                    text = math.sin(inputt)
+                    text = math.sin(message_text)
                 except:
                     text = "Entered value is not a number."
             elif data == "cos":
                 try:
-                    inputt = int(message_text)
-                    text = math.cos(inputt)
+                    text = math.cos(message_text)
                 except:
                     text = "Entered value is not a number."
             elif data == "tan":
                 try:
-                    inputt = int(message_text)
-                    text = math.tan(inputt)
+                    text = math.tan(message_text)
                 except:
                     text = "Entered value is not a number."
                 
