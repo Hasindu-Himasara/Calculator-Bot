@@ -40,7 +40,7 @@ CALCULATE_BUTTONS = InlineKeyboardMarkup(
             InlineKeyboardButton("SIN", callback_data="sin"),
             InlineKeyboardButton("COS", callback_data="cos"),
             InlineKeyboardButton("TAN", callback_data="tan"),
-            InlineKeyboardButton("%", callback_data="%")
+            InlineKeyboardButton("%", callback_data="perc")
         ],
         [
             InlineKeyboardButton("7", callback_data="7"),
@@ -139,7 +139,12 @@ async def cb_data(bot, update):
                 except:
                     await update.answer("Entered value is not a number.")
                     return
-                
+            elif data == "perc":
+                try:
+                    text = int(message_text) / 100
+                except:
+                    await update.answer("Entered value is not a number.")
+                    return                                 
             elif data == "DEL":
                 text = message_text[:-1]
             elif data == "AC":
