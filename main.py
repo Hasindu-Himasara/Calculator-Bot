@@ -13,18 +13,6 @@ Bot = Client(
 )
 
 
-START_TEXT = """**Hola {} 👋**
-
-I am a simple calculator telegram bot, send /calc to use me!"""
-
-START_BUTTONS = InlineKeyboardMarkup(
-    [
-        [
-            InlineKeyboardButton("GitHub", url="https://github.com/ImJanindu")
-        ]
-    ]
-)
-
 CALCULATE_TEXT = "Altex's Calculator Menu"
 
 CALCULATE_BUTTONS = InlineKeyboardMarkup(
